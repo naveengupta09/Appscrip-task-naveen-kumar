@@ -204,34 +204,6 @@ export default function FiltersClient({
         </div>
       </aside>
 
-      <div className="filters-chips" aria-label="Active filters">
-        <div className="active-tags">
-          {selectedTags.size > 0 && (
-            <>
-              <p className="active-tags-label">Active filters:</p>
-              <button
-                type="button"
-                className="filters-clear-btn"
-                onClick={clearFilters}
-              >
-                Clear All
-              </button>
-            </>
-          )}
-          {Array.from(selectedTags).map((tag) => (
-            <div key={tag} className="tag-chip">
-              <span>{tag}</span>
-              <button
-                type="button"
-                onClick={() => toggleTag(tag)}
-                aria-label={`Remove ${tag} filter`}
-              >
-                ×
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
