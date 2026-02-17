@@ -24,6 +24,31 @@
   min-height: 280px;
   border-radius: 4px;
   overflow: hidden;
+  position: relative;
+}
+
+.outOfStockOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.outOfStockText {
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+  color: var(--text);
+  padding: 14px 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
 }
 
 .image {

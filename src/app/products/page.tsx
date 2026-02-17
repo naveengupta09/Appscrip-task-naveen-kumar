@@ -86,7 +86,6 @@ export default async function ProductsPage({
             <FilterToggleClient />
           </div>
           <div className="toolbar-right">
-            <span>Sort by</span>
             <SortClient />
           </div>
         </section>
@@ -211,7 +210,7 @@ export default async function ProductsPage({
                   key={`${sponser.image}-${index}`}
                   src={sponser.image}
                   alt="Payment method"
-                  style={{backgroundColor: sponser.color, width: "56px"}}
+                  style={{backgroundColor: sponser.color, width: "52px"}}
                 />
               ))}
             </div>

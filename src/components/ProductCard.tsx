@@ -11,6 +11,7 @@ type Product = {
   price: number;
   category: string;
   image: string;
+  isAvailable: boolean;
 };
 
 type ProductCardProps = {
@@ -23,6 +24,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <article className={styles.card}>
       <div className={styles.media}>
+        {/* if isAvailabele is false then show a overlay bg will be white with 80% opacity and text in the center "Out of Stock" with color white and some padding */}
+        {product.isAvailable ? null : (
+          <div className={styles.outOfStockOverlay}>
+            <span className={styles.outOfStockText}>Out of Stock</span>
+          </div>
+        )}
         <Image
           src={product.image}
           alt={product.title}
