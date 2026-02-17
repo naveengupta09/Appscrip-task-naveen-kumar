@@ -1,0 +1,6 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soft backpack">
+  <rect width="300" height="300" fill="#f6f3ee" />
+  <rect x="80" y="70" width="140" height="180" rx="20" fill="#b7b0a4" />
+  <rect x="98" y="120" width="104" height="90" rx="14" fill="#9f978a" />
+  <path d="M110 70C120 35 180 35 190 70" stroke="#7f7568" strokeWidth="10" fill="none" />
+</svg>

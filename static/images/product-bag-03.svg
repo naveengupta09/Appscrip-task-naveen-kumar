@@ -1,0 +1,6 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Canvas pouch">
+  <rect width="300" height="300" fill="#f6f3ee" />
+  <rect x="70" y="110" width="160" height="120" rx="18" fill="#d5cbbb" />
+  <rect x="90" y="130" width="120" height="70" rx="12" fill="#bfb5a6" />
+  <circle cx="150" cy="110" r="22" fill="#d97745" />
+</svg>

@@ -1,0 +1,6 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Textured tote bag">
+  <rect width="300" height="300" fill="#f6f3ee" />
+  <rect x="70" y="80" width="160" height="170" rx="18" fill="#cfc6b9" />
+  <path d="M95 90C110 45 190 45 205 90" stroke="#8d8376" strokeWidth="12" fill="none" />
+  <rect x="85" y="130" width="130" height="90" rx="12" fill="#b9b0a3" />
+</svg>

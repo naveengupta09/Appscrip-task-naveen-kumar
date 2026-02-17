@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Appscrip PLP Task
 
-## Getting Started
+Responsive Product Listing Page built with Next.js (App Router) using server-side rendering. Product data loads from Fakestore API, while a static HTML/CSS version is included for evaluation.
 
-First, run the development server:
+## Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000/products`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Static HTML/CSS Version
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [html-version/index.html](html-version/index.html) directly in a browser. All assets are in [html-version/images](html-version/images).
 
-## Learn More
+## SSR and Data Source
 
-To learn more about Next.js, take a look at the following resources:
+- Server-side rendering is handled by the App Router page component in [src/app/products/page.tsx](src/app/products/page.tsx), forced to be dynamic.
+- Product data is fetched from `https://fakestoreapi.com/products` with `cache: "no-store"` to ensure SSR on each request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## SEO Coverage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Page title and description set in [src/app/layout.tsx](src/app/layout.tsx) and [src/app/products/page.tsx](src/app/products/page.tsx).
+- H1 and H2 structure on the product listing page.
+- JSON-LD ItemList schema injected in [src/app/layout.tsx](src/app/layout.tsx), [src/app/products/page.tsx](src/app/products/page.tsx), and [html-version/index.html](html-version/index.html).
+- SEO-friendly image names and descriptive alt text.
 
-## Deploy on Vercel
+## Deployment Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Host the Next.js app on Netlify (SSR supported).
+- Set the repository name to `Appscrip-task-<candidate name>` for submission.

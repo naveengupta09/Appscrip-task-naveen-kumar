@@ -1,0 +1,7 @@
+<svg width="520" height="320" viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Folded textile illustration">
+  <rect width="520" height="320" fill="#0f0f0f" rx="20" />
+  <rect x="60" y="70" width="220" height="160" rx="18" fill="#f3efe7" />
+  <rect x="150" y="110" width="260" height="140" rx="18" fill="#d97745" />
+  <path d="M150 110L280 70L410 110" fill="#c0683c" />
+  <circle cx="340" cy="230" r="36" fill="#f0ede8" />
+</svg>

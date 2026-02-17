@@ -1,0 +1,5 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Leather strap accessory">
+  <rect width="300" height="300" fill="#f6f3ee" />
+  <path d="M90 210C130 110 170 110 210 210" stroke="#b2693c" strokeWidth="18" fill="none" />
+  <circle cx="150" cy="210" r="30" fill="#c97a45" />
+</svg>
