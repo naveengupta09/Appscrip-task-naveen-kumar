@@ -17,6 +17,7 @@ type Product = {
     rate: number;
     count: number;
   };
+  isAvailable: boolean;
 };
 
 type CatalogClientProps = {
