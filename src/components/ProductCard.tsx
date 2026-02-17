@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <span className={styles.signin}>Sign in</span> or Create an account
             to see pricing
           </div>
-          <HeartIcon />
+          <HeartIcon size={20} />
         </div>
       </div>
     </article>

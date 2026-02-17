@@ -35,6 +35,7 @@ export default function CatalogClient({
   const selectedCategory = useFilterStore((state) => state.selectedCategory);
   const selectedTags = useFilterStore((state) => state.selectedTags);
   const sortBy = useFilterStore((state) => state.sortBy);
+  const isFilterOpen = useFilterStore((state) => state.isFilterOpen);
   const initializeFilters = useFilterStore((state) => state.initializeFilters);
 
   // Initialize filters on mount
@@ -75,13 +76,15 @@ export default function CatalogClient({
   });
 
   return (
-    <>
-      <FiltersClient
-        categories={categories}
-        availableTags={availableTags}
-        activeCategory={selectedCategory}
-        activeTags={Array.from(selectedTags)}
-      />
+    <div className={`catalog-grid-wrapper ${!isFilterOpen ? "filters-closed" : ""}`}>
+      {isFilterOpen && (
+        <FiltersClient
+          categories={categories}
+          availableTags={availableTags}
+          activeCategory={selectedCategory}
+          activeTags={Array.from(selectedTags)}
+        />
+      )}
       <div className="catalog-main" aria-label="Product list">
         <h2 className="section-title">Trending Products</h2>
         {sortedProducts.length === 0 ? (
@@ -99,6 +102,6 @@ export default function CatalogClient({
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

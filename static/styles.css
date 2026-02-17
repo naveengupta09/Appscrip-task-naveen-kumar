@@ -254,7 +254,7 @@ img {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 32px;
   padding: 48px 0 32px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);

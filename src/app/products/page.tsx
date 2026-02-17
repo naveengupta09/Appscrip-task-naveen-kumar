@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import CatalogClient from "@/components/CatalogClient";
 import SortClient from "@/components/SortClient";
+import FilterToggleClient from "@/components/FilterToggleClient";
 import { products } from "@/constants/products";
 import { sponsers } from "@/constants/sponsers";
 
@@ -82,7 +83,7 @@ export default async function ProductsPage({
         <section className="toolbar container" aria-label="Product tools">
           <div className="toolbar-left">
             <span>{normalizedProducts.length} items</span>
-            <button type="button">Filters</button>
+            <FilterToggleClient />
           </div>
           <div className="toolbar-right">
             <span>Sort by</span>

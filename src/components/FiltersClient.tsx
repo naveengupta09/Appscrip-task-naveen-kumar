@@ -17,12 +17,13 @@ export default function FiltersClient({
   activeTags,
 }: FiltersClientProps) {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
-    new Set(["category"])
+    new Set(["category"]),
   );
 
   const selectedTags = useFilterStore((state) => state.selectedTags);
   const toggleTag = useFilterStore((state) => state.toggleTag);
   const clearFilters = useFilterStore((state) => state.clearFilters);
+  const clearTagGroup = useFilterStore((state) => state.clearTagGroup);
   const setCategory = useFilterStore((state) => state.setCategory);
 
   const toggleSection = (section: string) => {
@@ -97,38 +98,76 @@ export default function FiltersClient({
           )}
         </div>
 
-        {Object.entries(tagGroups).map(([groupName, tags]) => (
-          <div key={groupName} className="filters-section">
-            <button
-              type="button"
-              className="filters-trigger"
-              onClick={() => toggleSection(groupName)}
-            >
-              <span>{groupName}</span>
-              <span
-                className={`filters-arrow ${
-                  expandedSections.has(groupName) ? "is-open" : ""
-                }`}
+        {Object.entries(tagGroups).map(([groupName, tags]) => {
+          const selectedInGroup = tags.filter((tag) => selectedTags.has(tag));
+          const hasSelection = selectedInGroup.length > 0;
+
+          return (
+            <div key={groupName} className="filters-section">
+              <button
+                type="button"
+                className="filters-trigger"
+                onClick={() => toggleSection(groupName)}
               >
-                ▾
-              </span>
-            </button>
-            {expandedSections.has(groupName) && (
-              <div className="filters-options">
-                {tags.map((tag) => (
-                  <label key={tag} className="filters-checkbox">
-                    <input
-                      type="checkbox"
-                      checked={selectedTags.has(tag)}
-                      onChange={() => toggleTag(tag)}
+                <span className="filters-trigger-content">
+                  <span className="filters-trigger-title">{groupName}</span>
+                  {!hasSelection && (
+                    <span className="filters-value">All</span>
+                  )}
+                  {hasSelection && (
+                    <span className="filters-value">
+                      {selectedInGroup.join(", ")}
+                    </span>
+                  )}
+                </span>
+                <span
+                  className={`filters-arrow ${
+                    expandedSections.has(groupName) ? "is-open" : ""
+                  }`}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.72003 10.73L7.0667 6.3849C7.58003 5.87174 8.42003 5.87174 8.93336 6.3849L13.28 10.73"
+                      stroke="currentColor"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     />
-                    <span>{tag}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+                  </svg>
+                </span>
+              </button>
+              {expandedSections.has(groupName) && (
+                <div className="filters-options">
+                  {hasSelection && (
+                    <button
+                      type="button"
+                      className="filters-unselect-btn"
+                      onClick={() => clearTagGroup(tags)}
+                    >
+                      Unselect All
+                    </button>
+                  )}
+                  {tags.map((tag) => (
+                    <label key={tag} className="filters-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={selectedTags.has(tag)}
+                        onChange={() => toggleTag(tag)}
+                      />
+                      <span>{tag}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
 
         <div className="filters-section">
           <div className="filters-label">By Category</div>

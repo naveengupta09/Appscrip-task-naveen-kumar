@@ -167,10 +167,9 @@ h1.logo{
 }
 
 .toolbar button {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  padding: 8px 16px;
-  border-radius: 999px;
+  border: none;
+  background: none;
+  padding: 12px 16px;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -257,11 +256,19 @@ h1.logo{
 }
 
 .catalog {
+  display: block;
+}
+
+.catalog-grid-wrapper {
   display: grid;
   grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   gap: 28px;
   align-items: start;
   padding: 24px 0 64px;
+}
+
+.catalog-grid-wrapper.filters-closed {
+  grid-template-columns: 1fr;
 }
 
 .filters {
@@ -333,9 +340,21 @@ h1.logo{
   color: var(--text);
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+  gap: 8px;
+}
+
+.filters-trigger-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filters-trigger-title {
+  display: block;
 }
 
 .filters-arrow {
@@ -391,6 +410,20 @@ h1.logo{
   text-decoration: underline;
 }
 
+.filters-unselect-btn {
+  background: none;
+  border: none;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: left;
+  padding: 0 0 8px 0;
+  font-weight: 500;
+}
+
 .tag-chip {
   display: flex;
   align-items: center;
@@ -419,8 +452,12 @@ h1.logo{
 }
 
 .filters-value {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
+  font-weight: 400;
+  text-transform: capitalize;
+  display: block;
+  line-height: 1.5;
 }
 
 .filters-label {
@@ -487,6 +524,10 @@ h1.logo{
   padding-bottom: 64px;
 }
 
+.catalog-grid-wrapper.filters-closed .product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .empty-state {
   border: 1px dashed var(--line);
   border-radius: var(--radius);
@@ -504,7 +545,7 @@ h1.logo{
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 32px;
   padding: 56px 0 40px;
 }
@@ -733,7 +774,7 @@ h1.logo{
 }
 
 @media (max-width: 1024px) {
-  .catalog {
+  .catalog-grid-wrapper {
     grid-template-columns: 1fr;
   }
 
