@@ -14,10 +14,15 @@ const serif = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
+const baseUrl = "https://appscrip-task-naveen-kumar.netlify.app";
+
 export const metadata: Metadata = {
   title: {
     default: "Discover Our Products | Premium Online Shopping",
     template: "%s | Appscrip",
+  },
+  icons: {
+    icon: "/favicon.svg",
   },
   description:
     "Browse curated essentials, accessories, and bags with a clean, modern shopping experience. Quality products with fast delivery.",
@@ -30,17 +35,26 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://appscrip.com"),
+  metadataBase: new URL(baseUrl),
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Appscrip",
     title: "Discover Our Products",
     description: "Browse curated essentials with quality guaranteed",
+    images: [
+      {
+        url: `${baseUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Discover Our Products",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@appscrip",
+    images: [`${baseUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -65,7 +79,7 @@ const schema = {
   "@type": "WebSite",
   name: "Appscrip",
   description: "Premium online shopping for quality products",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://appscrip.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://appscrip-task-naveen-kumar.netlify.app",
 };
 
 export default function RootLayout({
