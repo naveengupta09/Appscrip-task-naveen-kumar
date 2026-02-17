@@ -10,6 +10,7 @@ export const products = [
     rating: { rate: 3.9, count: 120 },
     tags: ["travel", "work", "padded", "laptop"],
     isAvailable: true,
+    favorite: true,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const products = [
     rating: { rate: 3.8, count: 57 },
     tags: ["canvas", "tote", "sturdy", "everyday"],
     isAvailable: false,
+    favorite: false,
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const products = [
     rating: { rate: 4.6, count: 93 },
     tags: ["ceramic", "coffee", "reusable", "eco-friendly"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ export const products = [
     rating: { rate: 4.1, count: 210 },
     tags: ["leather", "rfid", "slim", "minimalist"],
     isAvailable: true,
+    favorite: true,
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ export const products = [
     rating: { rate: 4.2, count: 86 },
     tags: ["cotton", "casual", "breathable"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 6,
@@ -70,6 +75,7 @@ export const products = [
     rating: { rate: 4.1, count: 27 },
     tags: ["led", "lamp", "desk", "minimalist"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 7,
@@ -82,6 +88,7 @@ export const products = [
     rating: { rate: 4.2, count: 52 },
     tags: ["outdoor", "lightweight", "sports", "breathable"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 8,
@@ -94,6 +101,7 @@ export const products = [
     rating: { rate: 4.5, count: 41 },
     tags: ["travel", "wind-resistant", "jacket", "work"],
     isAvailable: true,
+    favorite: false,
   },
   
   {
@@ -107,6 +115,7 @@ export const products = [
     rating: { rate: 4.0, count: 38 },
     tags: ["linen", "soft", "neutral", "home-decor"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 10,
@@ -119,6 +128,7 @@ export const products = [
     rating: { rate: 3.7, count: 64 },
     tags: ["organizer", "desk", "compact", "work"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 11,
@@ -131,6 +141,7 @@ export const products = [
     rating: { rate: 4.3, count: 114 },
     tags: ["protective", "wireless", "tech", "portable"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 12,
@@ -143,6 +154,7 @@ export const products = [
     rating: { rate: 4.4, count: 78 },
     tags: ["bluetooth", "portable", "audio", "tech"],
     isAvailable: true,
+    favorite: true,
   },
   {
     id: 13,
@@ -155,6 +167,7 @@ export const products = [
     rating: { rate: 4.8, count: 142 },
     tags: ["stainless-steel", "insulated", "travel", "eco-friendly"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 14,
@@ -167,6 +180,7 @@ export const products = [
     rating: { rate: 4.6, count: 31 },
     tags: ["journal", "stationery", "dot-grid", "work"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 15,
@@ -179,6 +193,7 @@ export const products = [
     rating: { rate: 3.9, count: 49 },
     tags: ["cushioned", "sports", "breathable", "athletic"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 16,
@@ -191,6 +206,7 @@ export const products = [
     rating: { rate: 4.0, count: 33 },
     tags: ["cap", "structured", "casual", "adjustable"],
     isAvailable: true,
+    favorite: false,
   },
   {
     id: 17,
@@ -203,5 +219,6 @@ export const products = [
     rating: { rate: 4.7, count: 65 },
     tags: ["knit", "cozy", "blanket", "home-decor"],
     isAvailable: true,
+    favorite: false,
   },
 ];

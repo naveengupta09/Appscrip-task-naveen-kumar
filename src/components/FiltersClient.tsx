@@ -25,6 +25,8 @@ export default function FiltersClient({
   const clearFilters = useFilterStore((state) => state.clearFilters);
   const clearTagGroup = useFilterStore((state) => state.clearTagGroup);
   const setCategory = useFilterStore((state) => state.setCategory);
+  const isFilterOpen = useFilterStore((state) => state.isFilterOpen);
+  const setFilterOpen = useFilterStore((state) => state.setFilterOpen);
 
   const toggleSection = (section: string) => {
     const newSet = new Set(expandedSections);
@@ -78,7 +80,16 @@ export default function FiltersClient({
   };
 
   return (
-    <section className="filters" aria-label="Filters">
+    <section
+      className={`filters ${isFilterOpen ? "is-open" : ""}`}
+      aria-label="Filters"
+    >
+      <button
+        type="button"
+        className="filters-backdrop"
+        aria-label="Close filters"
+        onClick={() => setFilterOpen(false)}
+      />
       <aside className="filters-sidebar" aria-label="Sidebar filters">
         <div className="filters-header">
           <span className="filters-count">

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/ProductCard.module.css";
 import HeartIcon from "@/components/icons/HeartIcon";
@@ -12,6 +13,7 @@ type Product = {
   category: string;
   image: string;
   isAvailable: boolean;
+  favorite?: boolean;
 };
 
 type ProductCardProps = {
@@ -20,6 +22,51 @@ type ProductCardProps = {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const priceLabel = formatCurrency(product.price);
+  const storageKey = "favoriteProducts";
+  const [isFavorite, setIsFavorite] = useState(Boolean(product.favorite));
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    try {
+      const stored = localStorage.getItem(storageKey);
+      if (!stored) {
+        setIsFavorite(Boolean(product.favorite));
+        return;
+      }
+
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) {
+        setIsFavorite(parsed.includes(product.id));
+      }
+    } catch {
+      setIsFavorite(Boolean(product.favorite));
+    }
+  }, [product.id, product.favorite]);
+
+  const handleFavoriteToggle = () => {
+    const nextValue = !isFavorite;
+    setIsFavorite(nextValue);
+
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    try {
+      const stored = localStorage.getItem(storageKey);
+      const parsed = stored ? JSON.parse(stored) : [];
+      const favoriteIds = Array.isArray(parsed) ? parsed : [];
+      const updated = nextValue
+        ? Array.from(new Set([...favoriteIds, product.id]))
+        : favoriteIds.filter((id) => id !== product.id);
+
+      localStorage.setItem(storageKey, JSON.stringify(updated));
+    } catch {
+      // Ignore localStorage errors silently.
+    }
+  };
 
   return (
     <article className={styles.card}>
@@ -46,7 +93,21 @@ export default function ProductCard({ product }: ProductCardProps) {
             <span className={styles.signin}>Sign in</span> or Create an account
             to see pricing
           </div>
-          <HeartIcon size={20} />
+          <button
+            type="button"
+            className={styles.favoriteButton}
+            aria-pressed={isFavorite}
+            aria-label={
+              isFavorite ? "Remove from favorites" : "Add to favorites"
+            }
+            onClick={handleFavoriteToggle}
+          >
+            <HeartIcon
+              size={20}
+              color={isFavorite ? "#EB4C6B" : "currentColor"}
+              fill={isFavorite ? "#EB4C6B" : "none"}
+            />
+          </button>
         </div>
       </div>
     </article>

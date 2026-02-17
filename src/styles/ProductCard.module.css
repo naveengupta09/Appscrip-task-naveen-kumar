@@ -103,3 +103,19 @@
   letter-spacing: 0.1em;
   color: var(--accent);
 }
+
+.favoriteButton {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  margin: -4px;
+  cursor: pointer;
+  line-height: 0;
+  color: inherit;
+  border-radius: 999px;
+}
+
+.favoriteButton:focus-visible {
+  outline: 2px solid var(--line);
+  outline-offset: 2px;
+}

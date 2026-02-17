@@ -281,6 +281,10 @@ h1.logo{
   align-self: start;
 }
 
+.filters-backdrop {
+  display: none;
+}
+
 .filters-sidebar {
   display: grid;
   gap: 16px;
@@ -783,11 +787,36 @@ h1.logo{
   }
 
   .filters {
-    position: static;
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: none;
+  }
+
+  .filters.is-open {
+    display: block;
+  }
+
+  .filters-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.45);
+    border: none;
   }
 
   .filters-sidebar {
-    display: none;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(86vw, 320px);
+    padding: 20px 18px 28px;
+    background: var(--surface);
+    border-right: none;
+    box-shadow: -12px 0 28px rgba(16, 14, 10, 0.18);
+    overflow-y: auto;
   }
 
   .filters-chips {
@@ -796,6 +825,10 @@ h1.logo{
 
   .product-grid,
   .skeleton-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-grid-wrapper.filters-closed .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -833,6 +866,10 @@ h1.logo{
 
   .product-grid,
   .skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-grid-wrapper.filters-closed .product-grid {
     grid-template-columns: 1fr;
   }
 }
